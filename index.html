@@ -41,12 +41,11 @@
     </div>
 
     <script>
-      function generateQR() {
+      const generateQR = () => {
         let qrImg = document.getElementById("qrImg");
         let text = document.getElementById("QR-Text");
         qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${text.value}`;
-        console.log(qrImg.src);
-      }
+      };
 
       document.addEventListener("DOMContentLoaded", () => {
         let text = document.getElementById("QR-Text");
