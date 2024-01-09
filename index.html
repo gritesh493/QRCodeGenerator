@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QRGenerator</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="qrContainer" class="">
+      <div class="text-container">
+        <label for="QR-Text"></label>
+        <textarea
+          type="text"
+          id="QR-Text"
+          name="QR-Text"
+          placeholder="Type your text/Link here"
+        ></textarea>
+      </div>
+      <div id="imageContainer">
+        <img
+          id="qrImg"
+          src="./Sample-QR-Code.webp"
+          alt="Your QR Code will be Visible here"
+        />
+      </div>
+      <div id="button-container">
+        <button id="submitButton" class="btn" onclick="generateQR()">
+          Generate QR
+        </button>
+      </div>
+      <footer
+        class="footer"
+        style="display: flex; align-items: center; justify-content: center"
+      >
+        <div style="border-top: 1px dotted; margin-top: 10%; padding: 10px">
+          Made with 💖 by
+          <a href="https://github.com/gritesh493" class="Link">Ritesh</a>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      function generateQR() {
+        let qrImg = document.getElementById("qrImg");
+        let text = document.getElementById("QR-Text");
+        qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${text.value}`;
+        console.log(qrImg.src);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        text.value = "It’s a good day for a good day.";
+        generateQR(); // Generate QR when the page loads
+      });
+    </script>
+  </body>
+</html>
